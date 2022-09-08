@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ZHANGYUN\\.nuget\\packages\\": {}
+    "C:\\Users\\WangMeiLi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\VSCodeDepository\\Dotnet6\\Garbage\\OrganizePLNfiles\\OrganizePLNfiles.csproj",
+      "projectUniqueName": "H:\\VscodeDeposity\\DotnetCSharp\\Study01\\OrganizeFilebyDate\\OrganizePLNfiles.csproj",
       "projectName": "OrganizePLNfiles",
-      "projectPath": "F:\\VSCodeDepository\\Dotnet6\\Garbage\\OrganizePLNfiles\\OrganizePLNfiles.csproj",
-      "packagesPath": "C:\\Users\\ZHANGYUN\\.nuget\\packages\\",
-      "outputPath": "F:\\VSCodeDepository\\Dotnet6\\Garbage\\OrganizePLNfiles\\obj\\",
+      "projectPath": "H:\\VscodeDeposity\\DotnetCSharp\\Study01\\OrganizeFilebyDate\\OrganizePLNfiles.csproj",
+      "packagesPath": "C:\\Users\\WangMeiLi\\.nuget\\packages\\",
+      "outputPath": "H:\\VscodeDeposity\\DotnetCSharp\\Study01\\OrganizeFilebyDate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ZHANGYUN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\WangMeiLi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
