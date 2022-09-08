@@ -1,0 +1,15 @@
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\bin\Debug\net6.0\OrganizePLNfiles.exe
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\bin\Debug\net6.0\OrganizePLNfiles.deps.json
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\bin\Debug\net6.0\OrganizePLNfiles.runtimeconfig.json
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\bin\Debug\net6.0\OrganizePLNfiles.dll
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\bin\Debug\net6.0\OrganizePLNfiles.pdb
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.csproj.AssemblyReference.cache
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.GeneratedMSBuildEditorConfig.editorconfig
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.AssemblyInfoInputs.cache
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.AssemblyInfo.cs
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.csproj.CoreCompileInputs.cache
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.dll
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\refint\OrganizePLNfiles.dll
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.pdb
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\OrganizePLNfiles.genruntimeconfig.cache
+F:\VSCodeDepository\Dotnet6\Garbage\OrganizePLNfiles\obj\Debug\net6.0\ref\OrganizePLNfiles.dll
