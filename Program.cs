@@ -2,18 +2,20 @@
 namespace OrganizePLNfiles;
 class Program
 {
+
     static void Main(string[] args)
     {
-        
-        Console.SetWindowSize(width:60,height:30);
+
+        Console.SetWindowSize(width: 60, height: 30);
         Console.WriteLine("Hello, World!");
+
 
         while (true)
         {
             PrintFounciton();
             string userChoice = Console.ReadLine();
             userChoice = String.IsNullOrEmpty(userChoice) ? "Ur input is not right!Pls input right number." : userChoice;
-            
+
             switch (userChoice)
             {
                 case "1":
@@ -46,7 +48,7 @@ class Program
         Console.WriteLine("-----------------------------------");
         Console.WriteLine("1: Organize Files by CreatedTime.");
         Console.WriteLine("-----------------------------------");
-        Console.WriteLine("2: LookUp fileVersion Info.");
+        Console.WriteLine("2: LookUp fileVersion Info.(iface.dll)");
         Console.WriteLine("-----------------------------------");
         Console.WriteLine("3: Go back to MainMenu.");
         Console.WriteLine("-----------------------------------");
@@ -57,9 +59,20 @@ class Program
     #region 输出文件Version信息
     static void OutputFileVersionInfo()
     {
+        Console.WriteLine("\r\nInput iface will display iface.dll Version.");
+        Console.WriteLine("-----------------------------------");
         Console.WriteLine("Pls input file Full_Path with Name: ");
         string userInputPathAndName_console = Console.ReadLine();
-        OrganizeFilesOperation organizeFilesOperation = new OrganizeFilesOperation(userInputPathAndName_console);
+        OrganizeFilesOperation organizeFilesOperation;
+        if (userInputPathAndName_console.ToLower() == "iface")
+        {
+            organizeFilesOperation = new OrganizeFilesOperation(OrganizeFilesOperation.ifaceDllPath_Default);
+        }
+        else
+        {
+            organizeFilesOperation = new OrganizeFilesOperation(userInputPathAndName_console);
+        }
+
         organizeFilesOperation.PrintFileInfoVersion();
     }
     #endregion

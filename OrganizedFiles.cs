@@ -1,8 +1,5 @@
 
-
-using System;
 using System.Diagnostics;
-
 
 
 public class OrganizeFilesOperation
@@ -11,6 +8,7 @@ public class OrganizeFilesOperation
 
     //获取软件当前位置
     private static string defaultPath = (Directory.GetCurrentDirectory() == null) ? "Null" : Directory.GetCurrentDirectory();
+    //用户输入地址
     private string userInputPath = string.Empty;
     //获取当前目录所有文件流数组
     private FileInfo[] fileInfo;
@@ -19,6 +17,8 @@ public class OrganizeFilesOperation
 
     #endregion
 
+    //默认iface.DLL地址
+    public static string ifaceDllPath_Default = "C:\\Program Files\\AspenTech\\Aspen HYSYS V14.0\\iface.dll";
     // public FileInfo[] FileInfos
     // {
     //     get
@@ -35,7 +35,7 @@ public class OrganizeFilesOperation
 
     public OrganizeFilesOperation()
     {
-        this.directoryInfo = new DirectoryInfo(defaultPath.Trim('\"'));
+        this.directoryInfo = new DirectoryInfo(defaultPath.Trim('"'));
         this.fileInfo = directoryInfo.GetFiles();
         this.filesNumberTotal = this.fileInfo.Count<FileInfo>();
 #if !DEBUG
@@ -64,7 +64,7 @@ public class OrganizeFilesOperation
         }
         else
         {
-            Console.WriteLine("---------------无效路径-------------\r\n ");
+            Console.WriteLine("---------------Wrong Path or DIR/File doesn't exist.-------------\r\n ");
         }
 
 #if !DEBUG
@@ -138,12 +138,12 @@ public class OrganizeFilesOperation
     {
         if (filesNumberTotal > 0 && fileInfo[0].Exists)
         {
-            System.Diagnostics.FileVersionInfo fVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(fileInfo[0].FullName);
-            Console.WriteLine("\r\nFile {0} detected.\r\n-ProductVersion: {1} \r\n-FileVersion: {2}\r\n", fileInfo[0].Name, fVersionInfo.ProductVersion, fVersionInfo.FileVersion);
+            FileVersionInfo fVersionInfo = FileVersionInfo.GetVersionInfo(fileInfo[0].FullName);
+            Console.WriteLine("\r\nFile {0} detected.\r\n-Current_ProductVersion: {1} \r\n-Current_FileVersion: {2}\r\n", fileInfo[0].Name, fVersionInfo.ProductVersion, fVersionInfo.FileVersion);
         }
         else
         {
-            new ArgumentOutOfRangeException("文件未找到！文件位置或者文件名错误~");
+            new ArgumentOutOfRangeException("-------------文件未找到！文件位置或者文件名错误~(Files unmatched! Maybe caused by wrong path.)--------");
         }
     }
 
