@@ -131,7 +131,7 @@ public class OrganizeFilesOperation
             directoryInfo.CreateSubdirectory(item);
             Console.WriteLine("Dir: {0} created!", item);
         }
-        Console.WriteLine("All Dir created!");
+        Console.WriteLine("All Dir created!\r\n");
     }
     //获取文件InfoVersion
     public void PrintFileInfoVersion()
@@ -149,7 +149,7 @@ public class OrganizeFilesOperation
 
 
     //获取文件并且分组文件到对应的文件中
-    public void OrganizedFilesIntoDir(FileInfo[] fileInfo,string[] dirCreatedTime)
+    public void OrganizedFilesIntoDir(string[] dirCreatedTime)
     {
         foreach (FileInfo fileinfo_single in fileInfo)
         {
@@ -159,7 +159,7 @@ public class OrganizeFilesOperation
             {
                 if (lastWriteTime_file.Equals(item))
                 {
-                 fileinfo_single.CopyTo(fileinfo_single.DirectoryName+"//"+item,true);
+                 fileinfo_single.CopyTo(fileinfo_single.DirectoryName+"\\"+item+"\\"+fileinfo_single.Name,true);
                  System.Console.WriteLine("File: {0} is add into Dir:{1}",fileinfo_single.Name,item);
                 }
             }

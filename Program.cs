@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        Console.SetWindowSize(width:60,height:30);
+
+        Console.SetWindowSize(width: 60, height: 30);
         Console.WriteLine("Hello, World!");
 
         while (true)
@@ -13,7 +13,7 @@ class Program
             PrintFounciton();
             string? userChoice = Console.ReadLine();
             userChoice = String.IsNullOrEmpty(userChoice) ? "Ur input is not right!Pls input right number." : userChoice;
-            
+
             switch (userChoice)
             {
                 case "1":
@@ -64,7 +64,19 @@ class Program
     }
     #endregion
 
-    #region  创建文件夹
+    // #region  创建文件夹
+    // static void CreatDirs()
+    // {
+    //     Console.WriteLine("\r\nPls input organized files DirPath: ");
+    //     string? userInputPath_console = Console.ReadLine();
+    //     //实例化文件操作对象
+    //     OrganizeFilesOperation organizeFilesOperation = new OrganizeFilesOperation(userInputPath_console);
+    //     String[] filesCreatedTimesAll = organizeFilesOperation.FilesCreatedTime();
+    //     organizeFilesOperation.CreatDirectories(filesCreatedTimesAll);
+    //     Console.WriteLine("\r\n");
+    // }
+    // #endregion
+    #region  创建文件夹并且分类文件
     static void CreatDirs()
     {
         Console.WriteLine("\r\nPls input organized files DirPath: ");
@@ -73,6 +85,7 @@ class Program
         OrganizeFilesOperation organizeFilesOperation = new OrganizeFilesOperation(userInputPath_console);
         String[] filesCreatedTimesAll = organizeFilesOperation.FilesCreatedTime();
         organizeFilesOperation.CreatDirectories(filesCreatedTimesAll);
+        organizeFilesOperation.OrganizedFilesIntoDir(filesCreatedTimesAll);
         Console.WriteLine("\r\n");
     }
     #endregion
