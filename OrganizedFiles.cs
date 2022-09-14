@@ -11,7 +11,7 @@ public class OrganizeFilesOperation
 
     //获取软件当前位置
     private static string defaultPath = (Directory.GetCurrentDirectory() == null) ? "Null" : Directory.GetCurrentDirectory();
-    private string userInputPath = null;
+    private string userInputPath = string.Empty;
     //获取当前目录所有文件流数组
     private FileInfo[] fileInfo;
     private int filesNumberTotal = 0;
@@ -35,7 +35,7 @@ public class OrganizeFilesOperation
 
     public OrganizeFilesOperation()
     {
-        this.directoryInfo = new DirectoryInfo(defaultPath.Trim('\"'));
+        this.directoryInfo = new DirectoryInfo(defaultPath.Trim('"'));
         this.fileInfo = directoryInfo.GetFiles();
         this.filesNumberTotal = this.fileInfo.Count<FileInfo>();
 #if !DEBUG
@@ -147,5 +147,24 @@ public class OrganizeFilesOperation
         }
     }
 
+
+    //获取文件并且分组文件到对应的文件中
+    public void OrganizedFilesIntoDir(FileInfo[] fileInfo,string[] dirCreatedTime)
+    {
+        foreach (FileInfo fileinfo_single in fileInfo)
+        {
+            DateTime fileInfoDateTime = fileinfo_single.LastWriteTime;
+            string lastWriteTime_file="Month " + fileInfoDateTime.Month + "-Day " + fileInfoDateTime.Day + "-Hr " + fileInfoDateTime.Hour + "-Y " + fileInfoDateTime.Year;
+            foreach (string item in dirCreatedTime)
+            {
+                if (lastWriteTime_file.Equals(item))
+                {
+                 fileinfo_single.CopyTo(fileinfo_single.DirectoryName+"//"+item,true);
+                 System.Console.WriteLine("File: {0} is add into Dir:{1}",fileinfo_single.Name,item);
+                }
+            }
+        }
+        
+    }
     #endregion
 }

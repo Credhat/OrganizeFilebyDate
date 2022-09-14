@@ -11,7 +11,7 @@ class Program
         while (true)
         {
             PrintFounciton();
-            string userChoice = Console.ReadLine();
+            string? userChoice = Console.ReadLine();
             userChoice = String.IsNullOrEmpty(userChoice) ? "Ur input is not right!Pls input right number." : userChoice;
             
             switch (userChoice)
@@ -58,7 +58,7 @@ class Program
     static void OutputFileVersionInfo()
     {
         Console.WriteLine("Pls input file Full_Path with Name: ");
-        string userInputPathAndName_console = Console.ReadLine();
+        string? userInputPathAndName_console = Console.ReadLine();
         OrganizeFilesOperation organizeFilesOperation = new OrganizeFilesOperation(userInputPathAndName_console);
         organizeFilesOperation.PrintFileInfoVersion();
     }
@@ -68,7 +68,7 @@ class Program
     static void CreatDirs()
     {
         Console.WriteLine("\r\nPls input organized files DirPath: ");
-        string userInputPath_console = Console.ReadLine();
+        string? userInputPath_console = Console.ReadLine();
         //实例化文件操作对象
         OrganizeFilesOperation organizeFilesOperation = new OrganizeFilesOperation(userInputPath_console);
         String[] filesCreatedTimesAll = organizeFilesOperation.FilesCreatedTime();
