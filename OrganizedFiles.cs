@@ -13,6 +13,7 @@ public class OrganizeFilesOperation
     //获取当前目录所有文件流数组
     private FileInfo[] fileInfo;
     private int filesNumberTotal = 0;
+    private int dirNumberTotal = 0;
     private DirectoryInfo directoryInfo;
 
     #endregion
@@ -83,7 +84,11 @@ public class OrganizeFilesOperation
     {
         return filesNumberTotal;
     }
-
+    //获取所有文件夹数
+    public int DirsNumberTotal()
+    {
+        return dirNumberTotal;
+    }
     //获取所有文件名
     public string[] FilesName()
     {
@@ -103,7 +108,7 @@ public class OrganizeFilesOperation
         {
             DateTime fileInfoDateTime = fileInfo[i].LastWriteTime;
             tempFilesCreatedTimeArray[i] = "Month " + fileInfoDateTime.Month + "-Day " + fileInfoDateTime.Day + "-Hr " + fileInfoDateTime.Hour + "-Y " + fileInfoDateTime.Year;
-            Console.WriteLine("Add item: {0}", tempFilesCreatedTimeArray[i]);
+            Console.WriteLine("------No. {0}" + "--------Add item: {1}------", i, tempFilesCreatedTimeArray[i]);
         }
         HashSet<string> createdTime_HashSet = tempFilesCreatedTimeArray.ToHashSet<string>();
         tempFilesCreatedTimeArray = new string[createdTime_HashSet.Count];
@@ -114,6 +119,7 @@ public class OrganizeFilesOperation
         //     tempFilesCreatedTimeArray[i] = createdTime_HashSet[i];
         // }
         createdTime_HashSet.CopyTo(tempFilesCreatedTimeArray);
+        this.dirNumberTotal = tempFilesCreatedTimeArray.Count<string>();
 
         return tempFilesCreatedTimeArray;
     }
@@ -123,16 +129,17 @@ public class OrganizeFilesOperation
     {
         if (filesTime.Length <= 0 || String.IsNullOrEmpty(filesTime[0]))
         {
-            throw new ArgumentOutOfRangeException("No Files Created Time Get!");
+            throw new ArgumentOutOfRangeException("------No Files Created Time Get!------\r\n");
         }
 
         foreach (var item in filesTime)
         {
             directoryInfo.CreateSubdirectory(item);
-            Console.WriteLine("Dir: {0} created!", item);
+            Console.WriteLine("------Dir: {0} created!------", item);
         }
-        Console.WriteLine("All Dir created!");
+        Console.WriteLine("------All Dir created!------\r\n");
     }
+
     //获取文件InfoVersion
     public void PrintFileInfoVersion()
     {
@@ -146,6 +153,34 @@ public class OrganizeFilesOperation
             new ArgumentOutOfRangeException("-------------文件未找到！文件位置或者文件名错误~(Files unmatched! Maybe caused by wrong path.)--------");
         }
     }
+
+    //根据文件创建时间分类到对应的文件夹里
+    public void OrganizedFilesIntoDir(string[] dirCreatedTime)
+    {
+        foreach (FileInfo fileinfo_single in fileInfo)
+        {
+            DateTime fileInfoDateTime = fileinfo_single.LastWriteTime;
+            string lastWriteTime_file = "Month " + fileInfoDateTime.Month + "-Day " + fileInfoDateTime.Day + "-Hr " + fileInfoDateTime.Hour + "-Y " + fileInfoDateTime.Year;
+            foreach (string item in dirCreatedTime)
+            {
+                if (lastWriteTime_file.Equals(item))
+                {
+                    fileinfo_single.CopyTo(fileinfo_single.DirectoryName + "\\" + item + "\\" + fileinfo_single.Name, true);
+                    System.Console.WriteLine("File: {0} is add into Dir:{1}", fileinfo_single.Name, item);
+                }
+            }
+        }
+
+    }
+
+
+    //输出所有文件基本信息到Info.db文件里,方便以后复查.
+    public void OutputInfoDatabase()
+    {
+
+    }
+
+
 
     #endregion
 }
